@@ -270,8 +270,14 @@ with col3:
         st.session_state.player = Player()
 
 st.sidebar.subheader("Bloco selecionado")
-sel = st.segmented_control(" ", options=list(range(len(INVENTORY))), format_func=lambda i: BLOCK_NAMES[INVENTORY[i]], key="inv_sel")
-st.session_state.player.sel_idx = int(sel)
+sel_idx = st.segmented_control(
+    " ", 
+    options=list(range(len(INVENTORY))),
+    format_func=lambda i: BLOCK_NAMES[INVENTORY[i]],
+    key="inv_sel"
+)
+st.session_state.player.sel_idx = sel_idx
+
 
 # Teclado (atalhos para os botões/toggles)
 if SHORTCUTS_OK:
